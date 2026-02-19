@@ -13,8 +13,8 @@ Yeo 2011 resting-state network atlases for the 'ggseg' ecosystem. Provides 'ggse
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ggseg/ggsegYeo2011}
-  \item Report bugs at \url{https://github.com/ggseg/ggsegYeo2011/issues}
+  \item \url{https://github.com/ggsegverse/ggsegYeo2011}
+  \item Report bugs at \url{https://github.com/ggsegverse/ggsegYeo2011/issues}
 }
 
 }

@@ -11,7 +11,7 @@
 # Run with: Rscript data-raw/make_atlas.R
 
 library(dplyr)
-library(ggsegExtra)
+library(ggseg.extra)
 library(ggseg.formats)
 
 Sys.setenv(
@@ -20,6 +20,7 @@ Sys.setenv(
 )
 
 options(freesurfer.verbose = FALSE)
+options(chromote.timeout = 120)
 future::plan(future::sequential)
 progressr::handlers("cli")
 progressr::handlers(global = TRUE)
@@ -47,7 +48,7 @@ for (f in yeo7_annots) {
   if (!file.exists(f)) cli::cli_abort("Annotation not found: {.path {f}}")
 }
 
-yeo7 <- create_cortical_atlas(
+yeo7 <- create_cortical_from_annotation(
   input_annot = yeo7_annots,
   atlas_name = "yeo7",
   output_dir = "data-raw",
@@ -58,8 +59,7 @@ yeo7 <- create_cortical_atlas(
 )
 
 yeo7 <- yeo7 |>
-  atlas_region_contextual("7Networks_0", "label") |>
-  atlas_view_gather()
+  atlas_region_contextual("7Networks_0", "label")
 
 cli::cli_alert_success("yeo7: {nrow(yeo7$core)} regions")
 print(yeo7)
@@ -76,7 +76,7 @@ for (f in yeo17_annots) {
   if (!file.exists(f)) cli::cli_abort("Annotation not found: {.path {f}}")
 }
 
-yeo17 <- create_cortical_atlas(
+yeo17 <- create_cortical_from_annotation(
   input_annot = yeo17_annots,
   atlas_name = "yeo17",
   output_dir = "data-raw",
@@ -87,8 +87,7 @@ yeo17 <- create_cortical_atlas(
 )
 
 yeo17 <- yeo17 |>
-  atlas_region_contextual("17Networks_0", "label") |>
-  atlas_view_gather()
+  atlas_region_contextual("17Networks_0", "label")
 
 cli::cli_alert_success("yeo17: {nrow(yeo17$core)} regions")
 print(yeo17)

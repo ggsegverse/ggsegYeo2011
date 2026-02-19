@@ -10,7 +10,7 @@ status](https://github.com/LCBC-UiO/ggsegYeo2011/workflows/R-CMD-check/badge.svg
 [![DOI](https://zenodo.org/badge/250192046.svg)](https://zenodo.org/badge/latestdoi/250192046)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggsegYeo2011)](https://CRAN.R-project.org/package=ggsegYeo2011)
-[![R-CMD-check](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 This package contains dataset for plotting the Yeo2011 cortical atlas
@@ -22,12 +22,12 @@ Yeo et al. (2011) J. Neurophysiology 16(3):1125-1165
 ## Installation
 
 We recommend installing the ggseg-atlases through the ggseg
-[r-universe](https://ggseg.r-universe.dev/ui#builds):
+[r-universe](https://ggsegverse.r-universe.dev/ui#builds):
 
 ``` r
 # Enable this universe
 options(repos = c(
-    ggseg = 'https://ggseg.r-universe.dev',
+    ggsegverse = 'https://ggsegverse.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'))
 
 # Install some packages
