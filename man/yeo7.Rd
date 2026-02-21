@@ -12,3 +12,8 @@ A \link[ggseg.formats:ggseg_atlas]{ggseg.formats::ggseg_atlas} object (cortical)
 \description{
 Yeo 7-Network Cortical Atlas
 }
+\seealso{
+Other ggseg_atlases: 
+\code{\link{yeo17}()}
+}
+\concept{ggseg_atlases}
