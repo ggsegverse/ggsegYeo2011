@@ -15,7 +15,8 @@ Description: Yeo 2011 resting-state network atlases for the 'ggseg' ecosystem.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
-    R (>= 4.1),
+    R (>= 4.1)
+Imports:
     ggseg.formats
 Suggests:
     ggseg,
