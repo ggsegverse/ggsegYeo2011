@@ -1,11 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
-^README\.Rmd$
-^\.travis\.yml$
-^appveyor\.yml$
 ^data-raw$
-^_pkgdown\.yml$
-^docs$
-^pkgdown$
+^LICENSE\.md$
 ^\.github$
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
+^_pkgdown\.yml$
+pkgdown
+docs

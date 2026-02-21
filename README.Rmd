@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/LCBC-UiO/ggsegYeo2011/workflows/R-CMD-check/badge.svg)](https://github.com/LCBC-UiO/ggsegYeo2011/actions)
 [![DOI](https://zenodo.org/badge/250192046.svg)](https://zenodo.org/badge/latestdoi/250192046)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggsegYeo2011)](https://CRAN.R-project.org/package=ggsegYeo2011)
-[![R-CMD-check](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 This package contains dataset for plotting the Yeo2011 cortical atlas ggseg and ggseg3d. 
@@ -29,12 +29,12 @@ Yeo et al. (2011) J. Neurophysiology 16(3):1125-1165 [pubmed](https://www.ncbi.n
 
 ## Installation
 
-We recommend installing the ggseg-atlases through the ggseg [r-universe](https://ggseg.r-universe.dev/ui#builds):
+We recommend installing the ggseg-atlases through the ggsegverse [r-universe](https://ggsegverse.r-universe.dev/ui#builds):
 
 ```{r eval = FALSE}
 # Enable this universe
 options(repos = c(
-    ggseg = 'https://ggseg.r-universe.dev',
+    ggsegverse = 'https://ggsegverse.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'))
 
 # Install some packages
@@ -59,13 +59,13 @@ library(ggsegYeo2011)
 library(ggplot2)
 library(ggseg)
 
-plot(yeo7) +
+plot(yeo7()) +
   theme(legend.position = "bottom",
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 3))
 
 
-plot(yeo17) +
+plot(yeo17()) +
   theme(legend.position = "bottom",
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 3))
@@ -76,7 +76,7 @@ plot(yeo17) +
 library(ggseg3d)
 library(dplyr)
 
-ggseg3d(atlas = yeo7_3d) %>% 
+ggseg3d(atlas = yeo7()) %>% 
   pan_camera("right lateral")
 ``
 
@@ -85,7 +85,7 @@ library(ggseg3d)
 library(dplyr)
 
 
-p <- ggseg3d(atlas = yeo7_3d) %>%
+p <- ggseg3d(atlas = yeo7()) %>%
   pan_camera("right lateral") %>%
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,
@@ -100,14 +100,14 @@ knitr::include_graphics("man/figures/README-yeo7-3d-plot.png")
 ```
 
 ```{r "noneval2", eval=FALSE}
-ggseg3d(atlas = yeo17_3d) %>% 
+ggseg3d(atlas = yeo17()) %>% 
   pan_camera("right lateral")
 ```
 
 ```{r "orca2", include=FALSE}
 library(ggseg3d)
 
-p <- ggseg3d(atlas = yeo17_3d) %>%
+p <- ggseg3d(atlas = yeo17()) %>%
   pan_camera("right lateral") %>%
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,

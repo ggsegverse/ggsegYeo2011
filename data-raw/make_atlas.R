@@ -1,87 +1,108 @@
-library(tidyverse)
-library(ggseg)
-library(ggseg3d)
-library(ggsegExtra)
-library(here)
+# Create Yeo 2011 Resting-State Network Atlases
+#
+# Recreates yeo7 (7 networks) and yeo17 (17 networks) cortical atlases
+# from FreeSurfer's Yeo2011 annotations on fsaverage5 using ggsegExtra.
+#
+# Requirements:
+#   - FreeSurfer installed with fsaverage5 subject
+#   - ggsegExtra package
+#   - ggseg.formats package
+#
+# Run with: Rscript data-raw/make_atlas.R
 
-annots <- c(
-  "lh.Yeo2011_17Networks_N1000.annot",
-  "rh.Yeo2011_17Networks_N1000.annot",
-  "lh.Yeo2011_7Networks_N1000.annot",
-  "rh.Yeo2011_7Networks_N1000.annot"
+library(dplyr)
+library(ggseg.extra)
+library(ggseg.formats)
+
+Sys.setenv(
+  FREESURFER_HOME = "/Applications/freesurfer/7.4.1",
+  DISPLAY = "/private/tmp/com.apple.launchd.Vyo4YHAmWh/org.xquartz:0"
 )
 
-lapply(annots, \(x){
-  download.file(sprintf(
-    "https://github.com/ThomasYeoLab/CBIG/blob/master/stable_projects/brain_parcellation/Yeo2011_fcMRI_clustering/1000subjects_reference/Yeo_JNeurophysiol11_SplitLabels/fsaverage5/label/%s?raw=true", x),
-    destfile = here("data-raw", x))
-})
+options(freesurfer.verbose = FALSE)
+options(chromote.timeout = 120)
+future::plan(future::sequential)
+progressr::handlers("cli")
+progressr::handlers(global = TRUE)
 
+fs_dir <- freesurfer::fs_dir()
+fsaverage5_dir <- file.path(fs_dir, "subjects", "fsaverage5")
 
-## 17 networks
-nnames <- read.csv("https://raw.githubusercontent.com/ThomasYeoLab/CBIG/master/stable_projects/brain_parcellation/Yeo2011_fcMRI_clustering/1000subjects_reference/17NetworksOrderedNames.csv",
-                   header = TRUE,
-                   col.names = c("number", "region")) |>
-  mutate(region = str_trim(region))
-yeo17_3d <- ggsegExtra::make_aparc_2_3datlas("Yeo2011_17Networks_N1000",
-                                             annot_dir = here("data-raw"),
-                                             ncores = 16) |>
-  mutate(atlas = "yeo17_3d")
+if (!dir.exists(fsaverage5_dir)) {
+  cli::cli_abort(c(
+    "fsaverage5 not found",
+    "i" = "Expected: {.path {fsaverage5_dir}}",
+    "i" = "Ensure FreeSurfer is properly installed"
+  ))
+}
 
+# ── Yeo 7 Networks ──────────────────────────────────────────────
+cli::cli_h1("Creating yeo7 cortical atlas (7 networks)")
 
-yeo17_3d <- yeo17_3d |>
-  unnest("ggseg_3d") |>
-  mutate(
-    number = str_remove(region, "17Networks_"),
-    number = as.integer(number)
-  ) |>
-  select(-region) |>
-  left_join(nnames) |>
-  as_ggseg3d_atlas()
+yeo7_annots <- file.path(
+  fsaverage5_dir, "label",
+  c("lh.Yeo2011_7Networks_N1000.annot", "rh.Yeo2011_7Networks_N1000.annot")
+)
 
-ggseg3d(atlas=yeo17_3d)
+for (f in yeo7_annots) {
+  if (!file.exists(f)) cli::cli_abort("Annotation not found: {.path {f}}")
+}
 
-yeo17 <- ggsegExtra::make_ggseg3d_2_ggseg(yeo17_3d,
-                                          ncores = 16,
-                                          tolerance = .3 )
-plot(yeo17)
+yeo7 <- create_cortical_from_annotation(
+  input_annot = yeo7_annots,
+  atlas_name = "yeo7",
+  output_dir = "data-raw",
+  tolerance = 1,
+  smoothness = 2,
+  skip_existing = TRUE,
+  cleanup = FALSE
+)
 
-## 7 networks
-nnames <- read.csv("https://raw.githubusercontent.com/ThomasYeoLab/CBIG/master/stable_projects/brain_parcellation/Yeo2011_fcMRI_clustering/1000subjects_reference/7NetworksOrderedNames.csv",
-                   header = TRUE,
-                   col.names = c("number", "region")) |>
-  mutate(region = str_trim(region))
+yeo7 <- yeo7 |>
+  atlas_region_contextual("7Networks_0", "label")
 
-yeo7_3d <- ggsegExtra::make_aparc_2_3datlas(
-  "Yeo2011_7Networks_N1000",
-  annot_dir = here("data-raw"),
-  ncores = 16) |>
-  mutate(atlas = "yeo7_3d")
+cli::cli_alert_success("yeo7: {nrow(yeo7$core)} regions")
+print(yeo7)
 
+# ── Yeo 17 Networks ─────────────────────────────────────────────
+cli::cli_h1("Creating yeo17 cortical atlas (17 networks)")
 
-yeo7_3d <- yeo7_3d |>
-  unnest("ggseg_3d") |>
-  mutate(
-    number = str_remove(region, "7Networks_"),
-    number = as.integer(number)
-  ) |>
-  select(-region) |>
-  left_join(nnames) |>
-  as_ggseg3d_atlas()
+yeo17_annots <- file.path(
+  fsaverage5_dir, "label",
+  c("lh.Yeo2011_17Networks_N1000.annot", "rh.Yeo2011_17Networks_N1000.annot")
+)
 
-ggseg3d(atlas=yeo7_3d)
+for (f in yeo17_annots) {
+  if (!file.exists(f)) cli::cli_abort("Annotation not found: {.path {f}}")
+}
 
-yeo7 <- ggsegExtra::make_ggseg3d_2_ggseg(yeo7_3d,
-                                          tolerance = .2 )
-plot(yeo7)
+yeo17 <- create_cortical_from_annotation(
+  input_annot = yeo17_annots,
+  atlas_name = "yeo17",
+  output_dir = "data-raw",
+  tolerance = 1,
+  smoothness = 2,
+  skip_existing = TRUE,
+  cleanup = FALSE
+)
 
-usethis::use_data(yeo7, yeo7_3d, yeo17, yeo17_3d, overwrite = TRUE)
+yeo17 <- yeo17 |>
+  atlas_region_contextual("17Networks_0", "label")
 
+cli::cli_alert_success("yeo17: {nrow(yeo17$core)} regions")
+print(yeo17)
 
+# ── Save atlas data ──────────────────────────────────────────────
+usethis::use_data(yeo7, overwrite = TRUE, compress = "xz")
+cli::cli_alert_success("Saved to data/yeo7.rda")
 
-# Make palette ----
-yeo7_pal <- make_palette_ggseg(yeo7_3d)
-yeo17_pal <- make_palette_ggseg(yeo17_3d)
+usethis::use_data(yeo17, overwrite = TRUE, compress = "xz")
+cli::cli_alert_success("Saved to data/yeo17.rda")
 
-brain_pals <- c(yeo7_pal, yeo17_pal)
-usethis::use_data(brain_pals, internal = TRUE, overwrite = TRUE)
+# ── Generate sysdata.rda with palettes from BOTH atlases ────────
+brain_pals <- list()
+brain_pals[[yeo7$atlas]] <- yeo7$palette
+brain_pals[[yeo17$atlas]] <- yeo17$palette
+
+save(brain_pals, file = here::here("R/sysdata.rda"), compress = "xz")
+cli::cli_alert_success("Saved palettes to R/sysdata.rda")

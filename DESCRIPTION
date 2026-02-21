@@ -1,35 +1,32 @@
 Package: ggsegYeo2011
-Title: Yeo 2011 Datasets for the 'ggseg'-Package
-Version: 1.0.2.002
-Authors@R: c(person("Athanasia Mo", "Mowinckel", 
-                    email = "a.m.mowinckel@psykologi.uio.no", 
+Title: Yeo 2011 Atlas for the 'ggseg' Ecosystem
+Version: 2.0.0
+Authors@R: c(person("Athanasia Mo", "Mowinckel",
+                    email = "a.m.mowinckel@psykologi.uio.no",
                     role = c("aut", "cre"),
                     comment = c(ORCID = "0000-0002-5756-0223")),
-            person("Didac", "Vidal-Piñeiro", 
-                    email = "d.v.pineiro@psykologi.uio.no", 
+            person("Didac", "Vidal-Piñeiro",
+                    email = "d.v.pineiro@psykologi.uio.no",
                     role = c("aut"),
                     comment = c(ORCID = "0000-0001-9997-9156")))
-Description: This is a support package for the ggseg, and ggseg3d packages.
-    It contains the Yeo 2011 atlases to plot using functions from those two packages.
+Description: Yeo 2011 resting-state network atlases for the 'ggseg' ecosystem.
+    Provides 'ggseg_atlas' objects with 2D polygon geometry for use with 'ggseg'.
+    Includes both 7-network and 17-network parcellations.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.1
-Depends: R (>= 2.10)
-LazyData: true
-LazyDataCompression: xz
+Depends:
+    R (>= 4.1)
+Imports:
+    ggseg.formats
 Suggests:
     ggseg,
     ggseg3d,
     ggplot2,
-    tidyr,
-    knitr,
-    rmarkdown,
-    covr,
-    testthat (>= 2.1.0),
-    remotes
-VignetteBuilder: knitr
-Remotes: 
-    LCBC-UiO/ggseg,
-    LCBC-UiO/ggseg3d
-URL: https://github.com/LCBC-UiO/ggsegYeo2011
-BugReports: https://github.com/LCBC-UiO/ggsegYeo2011/issues
+    testthat (>= 3.0.0),
+    vdiffr
+URL: https://github.com/ggsegverse/ggsegYeo2011
+BugReports: https://github.com/ggsegverse/ggsegYeo2011/issues
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Config/testthat/edition: 3
+Config/Needs/website: ggsegverse/ggseg.docs
