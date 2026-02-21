@@ -23,10 +23,6 @@ Suggests:
     ggplot2,
     testthat (>= 3.0.0),
     vdiffr
-Remotes:
-    ggsegverse/ggseg,
-    ggsegverse/ggseg3d,
-    ggsegverse/ggseg.formats
 URL: https://github.com/ggsegverse/ggsegYeo2011
 BugReports: https://github.com/ggsegverse/ggsegYeo2011/issues
 Roxygen: list(markdown = TRUE)
