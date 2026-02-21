@@ -1,13 +1,10 @@
 #' Yeo 7-Network Cortical Atlas
 #'
-#' @docType data
-#' @name yeo7
-#' @format A [ggseg.formats::ggseg_atlas] object (cortical).
-"yeo7"
-
+#' @return A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @export
+yeo7 <- function() .yeo7
 #' Yeo 17-Network Cortical Atlas
 #'
-#' @docType data
-#' @name yeo17
-#' @format A [ggseg.formats::ggseg_atlas] object (cortical).
-"yeo17"
+#' @return A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @export
+yeo17 <- function() .yeo17

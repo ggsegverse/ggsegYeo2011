@@ -59,13 +59,13 @@ library(ggsegYeo2011)
 library(ggplot2)
 library(ggseg)
 
-plot(yeo7) +
+plot(yeo7()) +
   theme(legend.position = "bottom",
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 3))
 
 
-plot(yeo17) +
+plot(yeo17()) +
   theme(legend.position = "bottom",
         legend.text = element_text(size = 9)) +
   guides(fill = guide_legend(ncol = 3))
@@ -76,7 +76,7 @@ plot(yeo17) +
 library(ggseg3d)
 library(dplyr)
 
-ggseg3d(atlas = yeo7_3d) %>% 
+ggseg3d(atlas = yeo7()) %>% 
   pan_camera("right lateral")
 ``
 
@@ -85,7 +85,7 @@ library(ggseg3d)
 library(dplyr)
 
 
-p <- ggseg3d(atlas = yeo7_3d) %>%
+p <- ggseg3d(atlas = yeo7()) %>%
   pan_camera("right lateral") %>%
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,
@@ -100,14 +100,14 @@ knitr::include_graphics("man/figures/README-yeo7-3d-plot.png")
 ```
 
 ```{r "noneval2", eval=FALSE}
-ggseg3d(atlas = yeo17_3d) %>% 
+ggseg3d(atlas = yeo17()) %>% 
   pan_camera("right lateral")
 ```
 
 ```{r "orca2", include=FALSE}
 library(ggseg3d)
 
-p <- ggseg3d(atlas = yeo17_3d) %>%
+p <- ggseg3d(atlas = yeo17()) %>%
   pan_camera("right lateral") %>%
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,

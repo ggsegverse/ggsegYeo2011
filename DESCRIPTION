@@ -14,7 +14,6 @@ Description: Yeo 2011 resting-state network atlases for the 'ggseg' ecosystem.
     Includes both 7-network and 17-network parcellations.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 4.1),
     ggseg.formats
