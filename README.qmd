@@ -1,0 +1,152 @@
+---
+format: gfm
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  fig.width = 10,
+  out.width = "100%",
+  fig.retina = 3
+)
+```
+
+# ggsegYeo2011 <img src='man/figures/logo.png' align="right" height="138.5" />
+
+<!-- badges: start -->
+[![DOI](https://zenodo.org/badge/250192046.svg)](https://zenodo.org/badge/latestdoi/250192046)
+[![CRAN status](https://www.r-pkg.org/badges/version/ggsegYeo2011)](https://CRAN.R-project.org/package=ggsegYeo2011)
+[![R-CMD-check](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggseg/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+This package contains dataset for plotting the Yeo2011 cortical atlas ggseg and ggseg3d.
+
+Yeo et al. (2011) J. Neurophysiology 16(3):1125-1165 [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21653723)
+
+To learn how to use these atlases, please look at the documentation for
+[ggseg](https://ggseg.github.io/ggseg/) and
+[ggseg3d](https://ggseg.github.io/ggseg3d).
+
+## Installation
+
+We recommend installing the ggseg-atlases through the ggseg [r-universe](https://ggseg.r-universe.dev/ui#builds):
+
+```{r}
+#| label: install-r-universe
+#| eval: false
+options(repos = c(
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
+
+install.packages("ggsegYeo2011")
+```
+
+You can install the released version version from [GitHub](https://github.com/) with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("ggseg/ggsegYeo2011")
+```
+
+## 7-Network Atlas
+
+```{r}
+#| label: 2d-yeo7
+library(ggseg)
+library(ggsegYeo2011)
+library(ggplot2)
+
+ggplot() +
+  geom_brain(
+    atlas = yeo7(),
+    mapping = aes(fill = label),
+    position = position_brain(hemi ~ view),
+    show.legend = FALSE
+  ) +
+  scale_fill_manual(values = yeo7()$palette, na.value = "grey") +
+  theme_void() +
+  ggtitle("Yeo 7-Network Atlas")
+```
+
+## 17-Network Atlas
+
+```{r}
+#| label: 2d-yeo17
+ggplot() +
+  geom_brain(
+    atlas = yeo17(),
+    mapping = aes(fill = label),
+    position = position_brain(hemi ~ view),
+    show.legend = FALSE
+  ) +
+  scale_fill_manual(values = yeo17()$palette, na.value = "grey") +
+  theme_void() +
+  ggtitle("Yeo 17-Network Atlas")
+```
+
+## 3D Yeo7
+
+```{r}
+#| label: 3d-yeo7-example
+#| eval: false
+library(ggseg3d)
+
+ggseg3d(atlas = yeo7()) |>
+  pan_camera("right lateral")
+```
+
+```{r}
+#| label: 3d-yeo7-snapshot
+#| include: false
+#| eval: !expr file.exists(Sys.which("chrome")) || file.exists(Sys.which("chromium"))
+library(ggseg3d)
+
+ggseg3d(atlas = yeo7()) |>
+  pan_camera("right lateral") |>
+  snapshot_brain("man/figures/README-yeo7-3d-plot.png")
+```
+
+```{r}
+#| label: 3d-yeo7-include
+#| echo: false
+#| eval: !expr file.exists("man/figures/README-yeo7-3d-plot.png")
+knitr::include_graphics("man/figures/README-yeo7-3d-plot.png")
+```
+
+## 3D Yeo17
+
+```{r}
+#| label: 3d-yeo17-example
+#| eval: false
+ggseg3d(atlas = yeo17()) |>
+  pan_camera("right lateral")
+```
+
+```{r}
+#| label: 3d-yeo17-snapshot
+#| include: false
+#| eval: !expr file.exists(Sys.which("chrome")) || file.exists(Sys.which("chromium"))
+library(ggseg3d)
+
+ggseg3d(atlas = yeo17()) |>
+  pan_camera("right lateral") |>
+  snapshot_brain("man/figures/README-yeo17-3d-plot.png")
+```
+
+```{r}
+#| label: 3d-yeo17-include
+#| echo: false
+#| eval: !expr file.exists("man/figures/README-yeo17-3d-plot.png")
+knitr::include_graphics("man/figures/README-yeo17-3d-plot.png")
+```
+
+Please note that the 'ggsegYeo2011' project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
