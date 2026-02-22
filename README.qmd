@@ -1,10 +1,11 @@
 ---
-output: github_document
+format: gfm
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -29,12 +30,13 @@ Yeo et al. (2011) J. Neurophysiology 16(3):1125-1165 [pubmed](https://www.ncbi.n
 
 ## Installation
 
-We recommend installing the ggseg-atlases through the ggsegverse [r-universe](https://ggsegverse.r-universe.dev/ui#builds):
+We recommend installing the ggseg-atlases through the ggsegverse [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
-```{r eval = FALSE}
+```{r}
+#| eval: false
 # Enable this universe
 options(repos = c(
-    ggsegverse = 'https://ggsegverse.r-universe.dev',
+    ggsegverse = 'https://ggseg.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'))
 
 # Install some packages
@@ -44,7 +46,8 @@ install.packages('ggsegYeo2011')
 
 You can install the released version version from [GitHub](https://github.com/) with:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # install.packages("remotes")
 remotes::install_github("LCBC-UiO/ggsegYeo2011")
 ```
@@ -52,10 +55,12 @@ remotes::install_github("LCBC-UiO/ggsegYeo2011")
 
 This is a basic example which shows you how to solve a common problem:
 ```{r}
+#| label: chunk-4
 library(ggsegYeo2011)
 ```
 
 ```{r}
+#| label: chunk-5
 library(ggplot2)
 library(ggseg)
 
@@ -72,52 +77,64 @@ plot(yeo17()) +
 
 ```
 
-```{r "noneval", eval=FALSE}
+```{r}
+#| label: noneval
+#| eval: false
 library(ggseg3d)
 library(dplyr)
 
-ggseg3d(atlas = yeo7()) %>% 
+ggseg3d(atlas = yeo7()) |> 
   pan_camera("right lateral")
 ``
 
-```{r "orca", include=FALSE}
+```{r}
+#| label: orca
+#| include: false
 library(ggseg3d)
 library(dplyr)
 
 
-p <- ggseg3d(atlas = yeo7()) %>%
-  pan_camera("right lateral") %>%
+p <- ggseg3d(atlas = yeo7()) |>
+  pan_camera("right lateral") |>
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,
                   font = list(color = "#000000b4",
                               family = 'sans serif',
                               size = 50))
-plotly::orca(p, "man/figures/README-yeo7-3d-plot.png")
+snapshot_brain("man/figures/README-yeo7-3d-plot.png")
 ```
 
-```{r "incl", echo=FALSE}
+```{r}
+#| label: incl
+#| echo: false
 knitr::include_graphics("man/figures/README-yeo7-3d-plot.png")
 ```
 
-```{r "noneval2", eval=FALSE}
-ggseg3d(atlas = yeo17()) %>% 
+```{r}
+#| label: noneval2
+#| eval: false
+ggseg3d(atlas = yeo17()) |> 
   pan_camera("right lateral")
 ```
 
-```{r "orca2", include=FALSE}
+```{r}
+#| label: orca2
+#| include: false
 library(ggseg3d)
 
-p <- ggseg3d(atlas = yeo17()) %>%
-  pan_camera("right lateral") %>%
+p <- ggseg3d(atlas = yeo17()) |>
+  pan_camera("right lateral") |>
   plotly::add_annotations( text="Screen capture",
                   legendtitle=TRUE, showarrow=FALSE,
                   font = list(color = "#000000b4",
                               family = 'sans serif',
                               size = 50))
-plotly::orca(p, "man/figures/README-yeo17-3d-plot.png")
+snapshot_brain("man/figures/README-yeo17-3d-plot.png")
 ```
 
-```{r "incl2", echo=FALSE}
+```{r}
+#| label: incl2
+#| echo: false
 knitr::include_graphics("man/figures/README-yeo17-3d-plot.png")
 ```
 
