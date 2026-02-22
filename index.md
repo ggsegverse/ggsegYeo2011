@@ -1,28 +1,26 @@
 # ggsegYeo2011
 
 This package contains dataset for plotting the Yeo2011 cortical atlas
-ggseg and ggseg3d.
+for ggseg.
 
 Yeo et al. (2011) J. Neurophysiology 16(3):1125-1165
-[pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21653723)
+[PubMed](https://www.ncbi.nlm.nih.gov/pubmed/21653723)
 
 ## Installation
 
 We recommend installing the ggseg-atlases through the ggseg
-[r-universe](https://ggsegverse.r-universe.dev/ui#builds):
+[r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
-# Enable this universe
 options(repos = c(
-    ggsegverse = 'https://ggsegverse.r-universe.dev',
-    CRAN = 'https://cloud.r-project.org'))
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
 
-# Install some packages
-install.packages('ggsegYeo2011')
+install.packages("ggsegYeo2011")
 ```
 
-You can install the released version version from
-[GitHub](https://github.com/) with:
+You can install from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
@@ -31,52 +29,37 @@ remotes::install_github("LCBC-UiO/ggsegYeo2011")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(ggsegYeo2011)
-```
-
-``` r
-library(ggplot2)
 library(ggseg)
+library(ggplot2)
 
-plot(yeo7) +
-  theme(legend.position = "bottom",
-        legend.text = element_text(size = 9)) +
-  guides(fill = guide_legend(ncol = 3))
+ggplot() +
+  geom_brain(
+    atlas = yeo7(),
+    mapping = aes(fill = label),
+    position = position_brain(hemi ~ view),
+    show.legend = FALSE
+  ) +
+  scale_fill_manual(values = yeo7()$palette, na.value = "grey") +
+  theme_void()
 ```
 
-![](reference/figures/README-unnamed-chunk-5-1.png)
+![](reference/figures/README-2d-plot-yeo7-1.png)
 
 ``` r
-
-
-plot(yeo17) +
-  theme(legend.position = "bottom",
-        legend.text = element_text(size = 9)) +
-  guides(fill = guide_legend(ncol = 3))
+ggplot() +
+  geom_brain(
+    atlas = yeo17(),
+    mapping = aes(fill = label),
+    position = position_brain(hemi ~ view),
+    show.legend = FALSE
+  ) +
+  scale_fill_manual(values = yeo17()$palette, na.value = "grey") +
+  theme_void()
 ```
 
-![](reference/figures/README-unnamed-chunk-5-2.png)
-
-``` r
-library(ggseg3d)
-library(dplyr)
-
-ggseg3d(atlas = yeo7_3d) %>% 
-  pan_camera("right lateral")
-``
-```
-
-![](reference/figures/README-yeo7-3d-plot.png)
-
-``` r
-ggseg3d(atlas = yeo17_3d) %>% 
-  pan_camera("right lateral")
-```
-
-![](reference/figures/README-yeo17-3d-plot.png)
+![](reference/figures/README-2d-plot-yeo17-1.png)
 
 Please note that the ‘ggsegYeo2011’ project is released with a
 [Contributor Code of
