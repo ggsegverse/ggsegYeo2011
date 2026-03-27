@@ -33,7 +33,7 @@ yeo7 <- create_cortical_from_annotation(
   skip_existing = TRUE,
   cleanup = FALSE
 ) |>
-  atlas_region_contextual("7Networks_0", "label")
+  atlas_region_contextual("7Networks_0|Medial_Wall", "label")
 
 print(yeo7)
 plot(yeo7)
@@ -52,7 +52,7 @@ yeo17 <- create_cortical_from_annotation(
   skip_existing = TRUE,
   cleanup = FALSE
 ) |>
-  atlas_region_contextual("17Networks_0", "label")
+  atlas_region_contextual("17Networks_0|Medial_Wall", "label")
 
 print(yeo17)
 plot(yeo17)
