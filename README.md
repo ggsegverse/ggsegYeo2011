@@ -1,10 +1,19 @@
 # ggsegYeo2011
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
+[![r-universe](https://ggsegverse.r-universe.dev/badges/ggsegYeo2011)](https://ggsegverse.r-universe.dev/ggsegYeo2011)
+<!-- badges: end -->
+
 Yeo 2011 Atlas for the ggsegverse Ecosystem.
 
 ## Installation
 
 ``` r
+# From r-universe
+install.packages("ggsegYeo2011", repos = "https://ggsegverse.r-universe.dev")
+
+# From GitHub
 # install.packages("remotes")
 remotes::install_github("ggsegverse/ggsegYeo2011")
 ```
