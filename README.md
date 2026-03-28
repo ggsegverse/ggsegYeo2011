@@ -41,3 +41,10 @@ Yeo 2011 7-network resting-state parcellation (Yeo et al., 2011).
 Yeo 2011 17-network resting-state parcellation (Yeo et al., 2011).
 
 ![yeo17](man/figures/yeo17_snapshot.png)
+
+## Data source
+
+Built-in FreeSurfer annotations (`Yeo2011_7Networks_N1000.annot`, `Yeo2011_17Networks_N1000.annot`) from the fsaverage5 subject.
+
+- **Reference**: Yeo et al. (2011) [doi:10.1152/jn.00338.2011](https://doi.org/10.1152/jn.00338.2011)
+- **Date obtained**: 2020-03-26 (FreeSurfer 7.4.1)
