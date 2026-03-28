@@ -1,10 +1,21 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # ggsegYeo2011
 
 <!-- badges: start -->
-
 [![R-CMD-check](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegYeo2011/actions/workflows/R-CMD-check.yaml)
 [![r-universe](https://ggsegverse.r-universe.dev/badges/ggsegYeo2011)](https://ggsegverse.r-universe.dev/ggsegYeo2011)
 <!-- badges: end -->
@@ -13,7 +24,7 @@ Yeo 2011 Atlas for the ggsegverse Ecosystem.
 
 ## Installation
 
-``` r
+```{r, eval = FALSE}
 # From r-universe
 install.packages("ggsegYeo2011", repos = "https://ggsegverse.r-universe.dev")
 
@@ -23,31 +34,25 @@ remotes::install_github("ggsegverse/ggsegYeo2011")
 ```
 
 ## Atlases
-
 ### yeo7
 
 Yeo 2011 7-network resting-state parcellation.
 
-``` r
+```{r yeo7}
 library(ggsegYeo2011)
 plot(yeo7())
 ```
-
-<img src="man/figures/README-yeo7-1.png" alt="" width="100%" />
 
 ### yeo17
 
 Yeo 2011 17-network resting-state parcellation.
 
-``` r
+```{r yeo17}
 plot(yeo17())
 ```
-
-<img src="man/figures/README-yeo17-1.png" alt="" width="100%" /> \##
-Data source
+## Data source
 
 Built-in FreeSurfer annotations from fsaverage5.
 
-- **Reference**: Yeo et al. (2011)
-  [doi:10.1152/jn.00338.2011](https://doi.org/10.1152/jn.00338.2011)
+- **Reference**: Yeo et al. (2011) [doi:10.1152/jn.00338.2011](https://doi.org/10.1152/jn.00338.2011)
 - **Date obtained**: 2020-03-26
