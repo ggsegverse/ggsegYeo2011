@@ -15,6 +15,7 @@
 #' @export
 #' @examples
 #' yeo7()
+#' plot(yeo7())
 yeo7 <- function() .yeo7
 
 #' Yeo 17-Network Cortical Atlas
@@ -33,4 +34,5 @@ yeo7 <- function() .yeo7
 #' @export
 #' @examples
 #' yeo17()
+#' plot(yeo17())
 yeo17 <- function() .yeo17
