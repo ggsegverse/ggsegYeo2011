@@ -4,6 +4,7 @@
 #' parcellation. Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Yeo BTT, Krienen FM, Sepulcre J, et al. (2011).
 #'   The organization of the human cerebral cortex estimated by intrinsic
@@ -24,6 +25,7 @@ yeo7 <- function() .yeo7
 #' parcellation. Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Yeo BTT, Krienen FM, Sepulcre J, et al. (2011).
 #'   The organization of the human cerebral cortex estimated by intrinsic
