@@ -36,4 +36,3 @@ mapply(
     h_color = "grey30"
   )
 )
-

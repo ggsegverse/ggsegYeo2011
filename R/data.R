@@ -17,7 +17,7 @@
 #' @examples
 #' yeo7()
 #' plot(yeo7())
-yeo7 <- function() .yeo7
+yeo7 <- function() .yeo7 # nolint: object_usage_linter.
 
 #' Yeo 17-Network Cortical Atlas
 #'
@@ -37,4 +37,4 @@ yeo7 <- function() .yeo7
 #' @examples
 #' yeo17()
 #' plot(yeo17())
-yeo17 <- function() .yeo17
+yeo17 <- function() .yeo17 # nolint: object_usage_linter.

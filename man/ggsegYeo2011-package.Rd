@@ -4,7 +4,7 @@
 \name{ggsegYeo2011-package}
 \alias{ggsegYeo2011}
 \alias{ggsegYeo2011-package}
-\title{ggsegYeo2011: Yeo 2011 Atlas for the 'ggseg' Ecosystem}
+\title{ggsegYeo2011: Yeo 2011 Atlas for the 'ggsegverse' Ecosystem}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
