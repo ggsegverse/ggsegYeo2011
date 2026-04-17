@@ -60,4 +60,7 @@ plot(yeo17)
 # ── Save atlas data ──────────────────────────────────────────────
 .yeo7 <- yeo7
 .yeo17 <- yeo17
-usethis::use_data(.yeo7, .yeo17, overwrite = TRUE, compress = "xz", internal = TRUE)
+usethis::use_data(
+  .yeo7, .yeo17,
+  overwrite = TRUE, compress = "xz", internal = TRUE
+)

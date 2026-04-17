@@ -10,10 +10,25 @@ yeo17()
 A \link[ggseg.formats:ggseg_atlas]{ggseg.formats::ggseg_atlas} object (cortical).
 }
 \description{
-Yeo 17-Network Cortical Atlas
+Brain atlas for the Yeo et al. (2011) 17-network resting-state cortical
+parcellation. Contains 2D polygon geometry for \code{\link[ggseg:ggbrain]{ggseg::geom_brain()}}.
+}
+\examples{
+yeo17()
+plot(yeo17())
+}
+\references{
+Yeo BTT, Krienen FM, Sepulcre J, et al. (2011).
+The organization of the human cerebral cortex estimated by intrinsic
+functional connectivity. \emph{Journal of Neurophysiology}, 106(3):1125-1165.
+\doi{10.1152/jn.00338.2011}
 }
 \seealso{
 Other ggseg_atlases: 
 \code{\link{yeo7}()}
+
+Other cortical_atlases: 
+\code{\link{yeo7}()}
 }
+\concept{cortical_atlases}
 \concept{ggseg_atlases}

@@ -4,6 +4,7 @@
 #' parcellation. Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Yeo BTT, Krienen FM, Sepulcre J, et al. (2011).
 #'   The organization of the human cerebral cortex estimated by intrinsic
@@ -16,7 +17,7 @@
 #' @examples
 #' yeo7()
 #' plot(yeo7())
-yeo7 <- function() .yeo7
+yeo7 <- function() .yeo7 # nolint: object_usage_linter.
 
 #' Yeo 17-Network Cortical Atlas
 #'
@@ -24,6 +25,7 @@ yeo7 <- function() .yeo7
 #' parcellation. Contains 2D polygon geometry for [ggseg::geom_brain()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Yeo BTT, Krienen FM, Sepulcre J, et al. (2011).
 #'   The organization of the human cerebral cortex estimated by intrinsic
@@ -35,4 +37,4 @@ yeo7 <- function() .yeo7
 #' @examples
 #' yeo17()
 #' plot(yeo17())
-yeo17 <- function() .yeo17
+yeo17 <- function() .yeo17 # nolint: object_usage_linter.
