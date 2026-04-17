@@ -1,4 +1,4 @@
-# ggsegYeo2011: Yeo 2011 Atlas for the 'ggseg' Ecosystem
+# ggsegYeo2011: Yeo 2011 Atlas for the 'ggsegverse' Ecosystem
 
 Yeo 2011 resting-state network atlases for the 'ggseg' ecosystem.
 Provides 'ggseg_atlas' objects with 2D polygon geometry for use with
