@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ggsegverse/ggsegYeo2011/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ggsegverse/ggsegYeo2011/blob/v2.0.2/DESCRIPTION)
 
 Mowinckel A, Vidal-Piñeiro D (2026). *ggsegYeo2011: Yeo 2011 Atlas for
 the 'ggsegverse' Ecosystem*. R package version 2.0.2,
