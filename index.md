@@ -29,17 +29,8 @@ pak::pak("ggsegverse/ggsegYeo2011")
 ``` r
 library(ggseg)
 library(ggsegYeo2011)
-library(ggplot2)
 
-ggplot() +
-  geom_brain(
-    atlas = yeo7(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = yeo7()$palette, na.value = "grey") +
-  theme_void()
+plot(yeo7())
 ```
 
 ![](reference/figures/README-yeo7-1.png)
@@ -47,15 +38,7 @@ ggplot() +
 ## 17-network parcellation
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = yeo17(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = yeo17()$palette, na.value = "grey") +
-  theme_void()
+plot(yeo17())
 ```
 
 ![](reference/figures/README-yeo17-1.png)
