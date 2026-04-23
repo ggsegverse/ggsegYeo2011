@@ -55,6 +55,7 @@ pak::pak("ggsegverse/ggsegYeo2011")
 #| label: yeo7
 #| fig-height: 5
 library(ggseg)
+library(ggsegYeo2011)
 
 plot(yeo7())
 ```
