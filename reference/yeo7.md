@@ -45,22 +45,17 @@ yeo7()
 #> Rendering: ✔ ggseg
 #> ✔ ggseg3d (vertices)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> # A tibble: 14 × 3
-#>    hemi  region      label         
-#>    <chr> <chr>       <chr>         
-#>  1 left  7Networks_1 lh_7Networks_1
-#>  2 left  7Networks_2 lh_7Networks_2
-#>  3 left  7Networks_3 lh_7Networks_3
-#>  4 left  7Networks_4 lh_7Networks_4
-#>  5 left  7Networks_5 lh_7Networks_5
-#>  6 left  7Networks_6 lh_7Networks_6
-#>  7 left  7Networks_7 lh_7Networks_7
-#>  8 right 7Networks_1 rh_7Networks_1
-#>  9 right 7Networks_2 rh_7Networks_2
+#>     hemi      region          label
+#> 1   left 7Networks_1 lh_7Networks_1
+#> 2   left 7Networks_2 lh_7Networks_2
+#> 3   left 7Networks_3 lh_7Networks_3
+#> 4   left 7Networks_4 lh_7Networks_4
+#> 5   left 7Networks_5 lh_7Networks_5
+#> 6   left 7Networks_6 lh_7Networks_6
+#> 7   left 7Networks_7 lh_7Networks_7
+#> 8  right 7Networks_1 rh_7Networks_1
+#> 9  right 7Networks_2 rh_7Networks_2
 #> 10 right 7Networks_3 rh_7Networks_3
-#> 11 right 7Networks_4 rh_7Networks_4
-#> 12 right 7Networks_5 rh_7Networks_5
-#> 13 right 7Networks_6 rh_7Networks_6
-#> 14 right 7Networks_7 rh_7Networks_7
+#> ... with 4 more rows
 plot(yeo7())
 ```

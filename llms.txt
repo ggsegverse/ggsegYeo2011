@@ -9,6 +9,7 @@ We recommend installing the ggseg-atlases through the ggseg
 [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
+
 options(repos = c(
   ggseg = "https://ggseg.r-universe.dev",
   CRAN = "https://cloud.r-project.org"
@@ -20,6 +21,7 @@ install.packages("ggsegYeo2011")
 You can install this package from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("ggsegverse/ggsegYeo2011")
 ```
@@ -27,6 +29,7 @@ pak::pak("ggsegverse/ggsegYeo2011")
 ## 7-network parcellation
 
 ``` r
+
 library(ggseg)
 library(ggsegYeo2011)
 
@@ -38,6 +41,7 @@ plot(yeo7())
 ## 17-network parcellation
 
 ``` r
+
 plot(yeo17())
 ```
 
