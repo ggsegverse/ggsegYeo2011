@@ -9,16 +9,10 @@ describe("yeo7 atlas", {
   })
 
   it("renders with ggseg", {
-    p <- ggplot2::ggplot() +
-      ggseg::geom_brain(
-        atlas = yeo7(),
-        mapping = ggplot2::aes(fill = label),
-        position = ggseg::position_brain(hemi ~ view),
-        show.legend = FALSE
-      ) +
-      ggplot2::scale_fill_manual(values = yeo7()$palette, na.value = "grey") +
-      ggplot2::theme_void()
-    vdiffr::expect_doppelganger("yeo7-2d", p)
+    vdiffr::expect_doppelganger(
+      "yeo7-2d",
+      ggseg::brain_test_plot(yeo7())
+    )
   })
 })
 
@@ -33,15 +27,9 @@ describe("yeo17 atlas", {
   })
 
   it("renders with ggseg", {
-    p <- ggplot2::ggplot() +
-      ggseg::geom_brain(
-        atlas = yeo17(),
-        mapping = ggplot2::aes(fill = label),
-        position = ggseg::position_brain(hemi ~ view),
-        show.legend = FALSE
-      ) +
-      ggplot2::scale_fill_manual(values = yeo17()$palette, na.value = "grey") +
-      ggplot2::theme_void()
-    vdiffr::expect_doppelganger("yeo17-2d", p)
+    vdiffr::expect_doppelganger(
+      "yeo17-2d",
+      ggseg::brain_test_plot(yeo17())
+    )
   })
 })
