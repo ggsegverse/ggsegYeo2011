@@ -29,7 +29,6 @@ yeo7 <- create_cortical_from_annotation(
   input_annot = yeo7_annots,
   atlas_name = "yeo7",
   output_dir = "data-raw",
-  tolerance = 0,
   skip_existing = TRUE,
   cleanup = FALSE
 ) |>
@@ -48,7 +47,6 @@ yeo17 <- create_cortical_from_annotation(
   input_annot = yeo17_annots,
   atlas_name = "yeo17",
   output_dir = "data-raw",
-  tolerance = 0,
   skip_existing = TRUE,
   cleanup = FALSE
 ) |>
